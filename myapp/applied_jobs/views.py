@@ -8,7 +8,7 @@ applied_jobs = Blueprint('applied_jobs', __name__)
 
 @applied_jobs.route('/create', methods=['GET', 'POST'])
 @login_required
-def create_appliedjob():
+def create_post():
     form = AppliedJobForm()
     if form.validate_on_submit():
         applied_job = AppliedJob(title=form.title.data, company=form.company.data, 
@@ -19,7 +19,7 @@ def create_appliedjob():
         flash('Job Post Created')
         print('Job post was created')
         return redirect(url_for('core.index'))
-    return render_template('create_appliedjob.html', form=form)
+    return render_template('create_post.html', form=form)
 
 # Make sure the blog_post_id is an integer!
 
@@ -55,7 +55,7 @@ def update(applied_job_id):
         form.in_process.data = applied_job.in_process
         form.rejected.data = applied_job.rejected
 
-    return render_template('create_appliedjob.html',title='Updating',form=form)
+    return render_template('create_post.html',title='Updating',form=form)
 
 @applied_jobs.route('/<int:applied_job_id>/delete',methods=['GET','POST'])
 @login_required
