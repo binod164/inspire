@@ -28,7 +28,7 @@ def applied_job(applied_job_id):
     applied_job = AppliedJob.query.get_or_404(applied_job_id) 
     return render_template('applied_job.html', title=applied_job.title, date=applied_job.date, job=applied_job_id)
 
-@applied_jobs.route('/<int:blog_post_id>/update',methods=['GET','POST'])
+@applied_jobs.route('/<int:applied_job_id>/update',methods=['GET','POST'])
 @login_required
 def update(applied_job_id):
     applied_job = AppliedJob.query.get_or_404(applied_job_id)
@@ -45,7 +45,7 @@ def update(applied_job_id):
         applied_job.in_process = form.in_process.data
         applied_job.rejected = form.rejected.data
         db.session.commit()
-        flash('Job Post Updated')
+        flash('Applied job post Updated')
         return redirect(url_for('blog_posts.blog_post',blog_post_id=applied_job.id))
 
     elif request.method == 'GET':
@@ -56,3 +56,16 @@ def update(applied_job_id):
         form.rejected.data = applied_job.rejected
 
     return render_template('create_appliedjob.html',title='Updating',form=form)
+
+@applied_jobs.route('/<int:applied_job_id>/delete',methods=['GET','POST'])
+@login_required
+def delete_post(applied_job_id):
+
+    applied_job = AppliedJob.query.get_or_404(applied_job_id)
+    if applied_job.author != current_user:
+        abort(403)
+
+    db.session.delete(applied_job)
+    db.session.commit()
+    flash('Applied job post Deleted')
+    return redirect(url_for('core.index'))
