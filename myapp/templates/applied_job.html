@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>{{ job.title }}</h1>
+  <h2>Written by: {{job.author.username}}</h2>
+  <h3>Published: {{ job.date.strftime('%B %d, %Y') }}</h3>
+   {% if job.author == current_user %}
+     <div>
+       <a class="btn btn-secondary" href="{{ url_for('applied_jobs.update', applied_job_id=job.id) }}">Update</a>
+       <br>
+       <form action="{{ url_for('applied_jobs.delete_post', applied_job_id=job.id) }}" method="POST">
+        <input class="btn btn-danger" type="submit" value="Delete">
+      </form>
+     </div>
+   {% endif %}
+</div>
+{% endblock content %}
