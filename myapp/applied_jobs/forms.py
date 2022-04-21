@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, BooleanField
+from wtforms import StringField, SubmitField, BooleanField
 from wtforms.validators import DataRequired
 
-class BlogPostForm(FlaskForm):
+class AppliedJobForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     company = StringField('Company', validators=[DataRequired()])
     date_applied = StringField('Company', validators=[DataRequired()])
