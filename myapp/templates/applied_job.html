@@ -1,17 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron">
-  <h1>{{ job.title }}</h1>
-  <h2>Written by: {{job.author.username}}</h2>
-  <h3>Published: {{ job.date.strftime('%B %d, %Y') }}</h3>
-   {% if job.author == current_user %}
-     <div>
-       <a class="btn btn-secondary" href="{{ url_for('applied_jobs.update', applied_job_id=job.id) }}">Update</a>
-       <br>
-       <form action="{{ url_for('applied_jobs.delete_post', applied_job_id=job.id) }}" method="POST">
+  <h2>Company: {{job.company}}</h2>
+  <p>Position: {{job.title}}</p>
+  <p>Applied: {{job.date_applied}}</p>
+  {% if job.author == current_user %}
+    <div>
+      {% if job.accepted == true %}
+        <p>Accepted: Yes</p>
+      {%else %}
+        <p>Accepted: No</p>
+      {% endif %}
+      {% if job.in_process == true %}
+        <p>In process: Yes</p>
+      {%else %}
+        <p>In process: No</p>
+      {% endif %}
+      {% if job.rejected == true %}
+        <p>Rejected: Yes</p>
+      {% else %}
+        <p>Rejected: No</p>
+      {% endif %}
+      <a class="btn btn-secondary" href="{{ url_for('applied_jobs.update', applied_job_id=job.id) }}">Update</a>
+      <br>
+      <form action="{{ url_for('applied_jobs.delete_post', applied_job_id=job.id) }}" method="POST">
         <input class="btn btn-danger" type="submit" value="Delete">
       </form>
-     </div>
-   {% endif %}
+    </div>
+  {% endif %}
 </div>
 {% endblock content %}

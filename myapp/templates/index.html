@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-{% extends "base.html" %}
-{% block content %}
     <div class="jumbotron">
         <h1>Job Application List</h1>
     </div>
@@ -9,12 +7,11 @@
         {% for job in applied_jobs.items %}
             <div class="card">
                 <div class="car-boy">
-                    <h2>
-                        <a class="card-title" href="{{url_for('applied_jobs.applied_job', applied_job_id=job.id)}}">{{post.title}}</a>
-                        <a href="{{url_for('users.applied_jobs', username=job.author.username)}}">Written by: {{post.author.username}}</a>
-                    </h2>
-                    <p>Published on: {{post.date.strftime('%Y - %m - %d')}}</p>
-                    <a class="btn btn-primary" href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">View job details</a>
+                    <h2>Company: {{job.company}}</h2>
+                    <p>Position: {{job.title}}</p>
+                    <p>Applied: {{job.date_applied}}</p>
+
+                    <a class="btn btn-primary" href="{{url_for('applied_jobs.applied_job', applied_job_id=job.id)}}">View job details</a>
                 </div>
             </div>
         {% endfor %}
@@ -35,6 +32,4 @@
             {% endfor %}
         </ul>
     </nav>
-{% endblock %}
-   
 {% endblock %}

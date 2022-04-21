@@ -26,7 +26,7 @@ def create_post():
 @applied_jobs.route('/<int:applied_job_id>')
 def applied_job(applied_job_id):
     applied_job = AppliedJob.query.get_or_404(applied_job_id) 
-    return render_template('applied_job.html', title=applied_job.title, date=applied_job.date, job=applied_job_id)
+    return render_template('applied_job.html', title=applied_job.title, date=applied_job.date, job=applied_job)
 
 @applied_jobs.route('/<int:applied_job_id>/update',methods=['GET','POST'])
 @login_required
@@ -40,16 +40,18 @@ def update(applied_job_id):
 
     if form.validate_on_submit():
         applied_job.title = form.title.data
+        applied_job.date_applied = form.date_applied.data
         applied_job.company = form.company.data
         applied_job.accepted = form.accepted.data
         applied_job.in_process = form.in_process.data
         applied_job.rejected = form.rejected.data
         db.session.commit()
         flash('Applied job post Updated')
-        return redirect(url_for('blog_posts.blog_post',blog_post_id=applied_job.id))
+        return redirect(url_for('applied_jobs.applied_job',applied_job_id=applied_job.id))
 
     elif request.method == 'GET':
         form.title.data = applied_job.title
+        form.date_applied.data = applied_job.date_applied
         form.company.data = applied_job.company 
         form.accepted.data = applied_job.accepted 
         form.in_process.data = applied_job.in_process

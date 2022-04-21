@@ -13,20 +13,20 @@
             {{form.company(class="form-control form-control-lg")}}
           </div>
           <div class="form-group">
-            {{form.date_applied.label(class="form-control-label")}}
-            {{form.date_applied(class="form-control form-control-lg")}}
+            {{form.date_applied.label(class="form-control-label" )}}
+            {{form.date_applied(class="form-control form-control-lg",type = "date")}}
           </div>
           <div class="form-group">
             {{form.accepted.label(class="form-control-label")}}
-            {{form.accepted(class="form-control form-control-lg")}}
+            {{form.accepted(class="form-check-input-lg")}}
           </div>
           <div class="form-group">
             {{form.in_process.label(class="form-control-label")}}
-            {{form.in_process(class="form-control form-control-lg")}}
+            {{form.in_process(class="form-check-input-lg")}}
           </div>
           <div class="form-group">
             {{form.rejected.label(class="form-control-label")}}
-            {{form.rejected(class="form-control form-control-lg")}}
+            {{form.rejected(class="form-check-input-lg")}}
         </div>
         <div class="form-group">
             {{form.submit(class="btn btn-outline-info")}}
