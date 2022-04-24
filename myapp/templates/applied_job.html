@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="jumbotron">
+<div class="details">
   <h2>Company: {{job.company}}</h2>
   <p>Position: {{job.title}}</p>
   <p>Applied: {{job.date_applied}}</p>
@@ -21,11 +21,13 @@
       {% else %}
         <p>Rejected: No</p>
       {% endif %}
-      <a class="btn btn-secondary" href="{{ url_for('applied_jobs.update', applied_job_id=job.id) }}">Update</a>
-      <br>
-      <form action="{{ url_for('applied_jobs.delete_post', applied_job_id=job.id) }}" method="POST">
-        <input class="btn btn-danger" type="submit" value="Delete">
-      </form>
+      <div>
+        <a class="btn btn-secondary update" href="{{ url_for('applied_jobs.update', applied_job_id=job.id) }}">Update</a>
+        <br>
+        <form class="delete" action="{{ url_for('applied_jobs.delete_post', applied_job_id=job.id) }}" method="POST">
+          <input class="btn btn-danger btn-sm del" type="submit" value="Delete">
+        </form>
+      </div> 
     </div>
   {% endif %}
 </div>

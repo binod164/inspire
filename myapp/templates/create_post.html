@@ -3,7 +3,6 @@
     <div class="container">
       <form class="form-group" method="POST">
           {{form.hidden_tag()}}
-
           <div class="form-group">
             {{form.title.label(class="form-control-label")}}
             {{form.title(class="form-control form-control-lg")}}
@@ -17,8 +16,7 @@
             {{form.date_applied(class="form-control form-control-lg",type = "date")}}
           </div>
           <div class="form-group">
-            {{form.accepted.label(class="form-control-label")}}
-            {{form.accepted(class="form-check-input-lg")}}
+            {{form.accepted.label(class="form-control-label")}}{{form.accepted(class="form-check-input-lg")}}
           </div>
           <div class="form-group">
             {{form.in_process.label(class="form-control-label")}}
