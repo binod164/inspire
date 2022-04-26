@@ -14,16 +14,13 @@ h1{
 text-align: center;
 font-size: 8rem;
 margin-top: 25vh;
-color: rgb(205, 200, 200);
 font-family: 'Square Peg', cursive;
 }
 
 .nav{
-  background-color: rgb(31, 31, 31);
+  background-color: rgb(25, 25, 25);
   display: flex;
   justify-content: space-between;
-  border-bottom-color: rgb(31, 31, 31);
-  border-bottom-style: double;
 }
 
 .nav *{
@@ -117,19 +114,45 @@ p{
 }
 
 h2{
+  font-size: 2rem;
+  text-align: center;
+}
+
+h3{
   font-size: 1.5rem;
   text-align: center;
 }
 
 .btn{
   border-radius: 5px;
-  background-color: rgb(31, 31, 31);
+  background-color: rgb(25, 25, 25);
   color: rgb(205, 200, 200);
+}
+
+.addapplication{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add{
+  align-self: end;
+  margin-right:2%;
+}
+
+.addapp{
+  text-decoration: none;
+  background-color: rgb(25, 25, 25);
+  color: rgb(205, 200, 200);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 @media only screen and (max-width: 600px) {
   h1{
     font-size: 1.5rem;
+    padding: 5px;
   }
 
   h2{
@@ -141,9 +164,8 @@ h2{
     }
 
   .nav *{
-    color: white;
-    text-decoration: none;
     font-size: 1rem;
+    padding: 3px;
   }
   
   form *{
@@ -190,6 +212,11 @@ h2{
     margin-left: 5px;
     margin-right: 5px;
     padding: 10px 2px;
+  }
+
+  .addapp{
+    border-radius: 5px;
+    font-size: 1rem;
   }
   
   
