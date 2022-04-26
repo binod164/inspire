@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
+    <h1>Daily Doses of Motivation</h1>
     {% for datas in data%}
-        <h1>{{datas['q']}}</h1>
+            <div class = "quotes">
+                <h2>"{{datas['q']}}"</h2>
+                <h2> -{{datas['a']}}</h2>
+            </div>
     {% endfor %}
 </div>
 {% endblock %}
