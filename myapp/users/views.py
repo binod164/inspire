@@ -2,10 +2,12 @@ from crypt import methods
 from operator import methodcaller
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
+from itsdangerous import json
 from myapp import db
 from myapp.models import User
 from myapp.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from myapp.models import User, AppliedJob
+import requests
 
 users = Blueprint('users', __name__) # dont forget to register this in __init__.py 
 
@@ -58,18 +60,26 @@ def logout():
 @users.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
-    form = UpdateUserForm()
-    if form.validate_on_submit(): 
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('User account updated!!')
-        return redirect(url_for('users.account'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
+    req = requests.get("https://zenquotes.io/api/quotes")
+    data = json.loads(req.content)
 
-    return render_template('account.html', form=form)
+    # response = urllib.request.urlopen(url)
+    # quotes = response.read()
+    # dict = json.loads(quotes)
+
+    # quotes = []
+
+    # for quote in dict["results"]:
+    #     quote = {
+    #         "quotes": quote["q"],
+    #     }
+        
+    #     quotes.append(quote)
+
+    # return {"results": quotes}
+    return render_template('account.html', data = data)
+
+
 
 @users.route('/<username>')
 def user_posts(username):
