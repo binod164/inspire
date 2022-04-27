@@ -7,7 +7,7 @@ from myapp.models import AppliedJob
 
 core = Blueprint('core', __name__)
 
-@core.route('/')
+@core.route('/profile')
 def index():
     page = request.args.get('page', 1, type=int)
     applied_jobs = AppliedJob.query.order_by(AppliedJob.date.desc()).paginate(page=page, per_page=5)

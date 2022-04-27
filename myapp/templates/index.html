@@ -6,14 +6,16 @@
     </div>
     <div class="row">
         {% for job in applied_jobs.items %}
-            <div class="card col-4">
-                <div class="card-body">
-                    <h2>{{job.company}}</h2>
-                    <p>Position: {{job.title}}</p>
-                    <p>Applied: {{job.date_applied}}</p>
-                    <a class="btn" href="{{url_for('applied_jobs.applied_job', applied_job_id=job.id)}}">View job details</a>
+            {% if current_user.id == job.user_id %}
+                <div class="card col-4">
+                    <div class="card-body">
+                        <h2>{{job.company}}</h2>
+                        <p>Position: {{job.title}}</p>
+                        <p>Applied: {{job.date_applied}}</p>
+                        <a class="btn" href="{{url_for('applied_jobs.applied_job', applied_job_id=job.id)}}">View job details</a>
+                    </div>
                 </div>
-            </div>
+            {% endif %}   
         {% endfor %}
     </div>
 

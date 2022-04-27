@@ -6,7 +6,7 @@ body{
 
 h1{
   text-align: center;
-  color: white;
+  color:rgb(205, 200, 200) ;
   margin:1%;
 }
 
@@ -20,7 +20,7 @@ font-family: 'Square Peg', cursive;
 .nav{
   background-color: rgb(25, 25, 25);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  
 }
 
 .nav *{
@@ -34,8 +34,8 @@ form{
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: rgb(205, 200, 200);
   margin-top: 15vh;
+  background-color: black;
 }
 
 form *{
@@ -44,20 +44,27 @@ form *{
   width: 400px;
   border-radius: 10px;
   font-size: 1.5rem;
-  color: black;
+  background-color: black;
+  border-style: solid;
+  border-color: rgb(205, 200, 200);
+  color:rgb(205, 200, 200) ;
 }
 
 form > .login, .register{
   font-size: 2rem;
   background-color: black;
-  color: white;
+  color:rgb(205, 200, 200) ;
+  border-style: none;
 }
 
 .card{
-  background-color: black;
+  /* background-color: black; */
+  border-color: rgb(39, 120, 181);
+  background-color: rgb(25, 25, 25);
   border-style: solid;
   border-radius: 10px;
-  border-color: rgb(31, 31, 31);
+  /* border-color: rgb(106, 103, 103); */
+  /* border-color: blue; */
   margin: 5px;
   width: 32%;
 }
@@ -79,10 +86,16 @@ p{
 }
 
 .details{
+  background-color: rgb(25, 25, 25);
+  padding:50px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-top: 10vh;
+  width:50vw;
+  border-style: solid;
+  border-color: rgb(39, 120, 181);
+  margin-left: 25vw;
 }
 
 .details *{
@@ -104,13 +117,17 @@ p{
 }
 
 .quotes{
-  background-color: black;
+  background-color: rgb(25, 25, 25);
   border-style: solid;
-  border-color: rgb(31, 31, 31);
+  border-width: thin;
+  border-color: rgb(39, 120, 181);
+  /* border-color: blue; */
+  /* border-color: rgb(106, 103, 103); */
+  border-radius: 10px;
   margin-bottom: 20px;
   margin-left: 40px;
   margin-right: 40px;
-  padding: 30px 0;
+  padding: 30px 10px;
 }
 
 h2{
@@ -123,10 +140,13 @@ h3{
   text-align: center;
 }
 
-.btn{
-  border-radius: 5px;
-  background-color: rgb(25, 25, 25);
-  color: rgb(205, 200, 200);
+.btn, #submit{
+  border-radius: 10px;
+  background-color: rgb(39, 120, 181);
+  border-style: solid;
+  /* border-color: red; */
+  border-color: rgb(106, 103, 103);
+  color:rgb(205, 200, 200) ;
 }
 
 .addapplication{
@@ -138,6 +158,7 @@ h3{
 .add{
   align-self: end;
   margin-right:2%;
+  margin-bottom: 20px;
 }
 
 .addapp{
@@ -146,7 +167,31 @@ h3{
   color: rgb(205, 200, 200);
   border-radius: 5px;
   padding: 10px;
-  margin-top: 10px;
+  
+}
+
+.form-control-label{
+  background-color: black;
+  color:rgb(205, 200, 200) ;
+  border-style: none;
+}
+
+.form-group{
+  border-style: none;
+}
+
+.form-control{
+  background-color: black;
+  color:rgb(205, 200, 200) ;
+}
+
+.form-check-input-lg{
+  height: 30px;
+}
+
+.btn:hover , #submit:hover{
+  background-color: rgb(25, 25, 25);
+  color: antiquewhite;
 }
 
 @media only screen and (max-width: 600px) {
@@ -170,7 +215,7 @@ h3{
   
   form *{
     padding: 5px;
-    width: 200px;
+    width: 250px;
     border-radius: 10px;
     font-size: 1rem;
   }
@@ -192,6 +237,13 @@ h3{
     font-size: 1rem; 
   }
 
+  .details{
+    margin-top: 10vh;
+    width:95vw;
+    margin-left: 0;
+  }
+  
+
   .details *{
     font-size: 1.25rem;
   }
@@ -202,15 +254,15 @@ h3{
 
   .form-group{
     margin-top: 3%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .quotes{
-    background-color: black;
-    border-style: solid;
-    border-color: rgb(31, 31, 31);
+    width: 99%;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
     padding: 10px 2px;
   }
 
@@ -218,6 +270,13 @@ h3{
     border-radius: 5px;
     font-size: 1rem;
   }
-  
+
+  .form-check-input-lg{
+    height: 20px;
+  }
+
+  .form-control{
+    font-size: 1em;
+  }
   
 }

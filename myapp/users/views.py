@@ -57,26 +57,11 @@ def logout():
 
 
 #account (update UserForm)
-@users.route('/account', methods=['GET', 'POST'])
+@users.route('/home', methods=['GET', 'POST'])
 @login_required
 def account():
     req = requests.get("https://zenquotes.io/api/quotes")
     data = json.loads(req.content)
-
-    # response = urllib.request.urlopen(url)
-    # quotes = response.read()
-    # dict = json.loads(quotes)
-
-    # quotes = []
-
-    # for quote in dict["results"]:
-    #     quote = {
-    #         "quotes": quote["q"],
-    #     }
-        
-    #     quotes.append(quote)
-
-    # return {"results": quotes}
     return render_template('account.html', data = data)
 
 
