@@ -9,5 +9,6 @@
     {{form.password(placeholder="Password")}}<br>
     {{form.pass_confirm(placeholder="Confirm password")}}<br>
     {{form.submit()}}
+    <a class = "return" href="{{url_for('users.login')}}">Return to login</a>
 </form>
 {% endblock %}
