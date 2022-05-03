@@ -1,31 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="details">
-  <h2>Company: {{job.company}}</h2>
-  <p>Position: {{job.title}}</p>
-  <p>Applied: {{job.date_applied}}</p>
+  <div class="company-name">
+    <h2>Company:</h2>
+    <h2>{{job.company}}</h2>
+  </div>
+  <div class="company-name">
+    <h2>Position:</h2>
+    <h2>{{job.title}}</h2>
+  </div>
+  <div class="company-name">
+    <h2>Applied:</h2>
+    <h2>{{job.date_applied}}</h2>
+  </div>
   {% if job.author == current_user %}
     <div>
       {% if job.accepted == true %}
-        <p>Accepted: Yes</p>
+      <div class="company-name">
+        <p>Accepted:</p> 
+        <p class="option">Yes</p>
+      </div>
       {%else %}
-        <p>Accepted: No</p>
+      <div class="company-name">
+        <p>Accepted:</p> 
+        <p>No</p>
+      </div>
       {% endif %}
       {% if job.in_process == true %}
-        <p>In process: Yes</p>
+      <div class="company-name">
+        <p>In Process:</p> 
+        <p>Yes</p>
+      </div>
       {%else %}
-        <p>In process: No</p>
+      <div class="company-name">
+        <p>In Process:</p> 
+        <p>No</p>
+      </div>
       {% endif %}
       {% if job.rejected == true %}
-        <p>Rejected: Yes</p>
-      {% else %}
-        <p>Rejected: No</p>
+      <div class="company-name">
+        <p>Rejected:</p> 
+        <p>Yes</p>
+      </div>
+      {%else %}
+      <div class="company-name">
+        <p>Rejected:</p> 
+        <p>No</p>
+      </div>
       {% endif %}
       <div>
         <a class="btn btn-secondary update" href="{{ url_for('applied_jobs.update', applied_job_id=job.id) }}">Update</a>
         <br>
         <form class="delete" action="{{ url_for('applied_jobs.delete_post', applied_job_id=job.id) }}" method="POST">
-          <input class="btn btn-danger btn-sm del" type="submit" value="Delete">
+          <input class="btn btn-sm del btn-secondary " type="submit" value="Delete">
         </form>
       </div> 
     </div>

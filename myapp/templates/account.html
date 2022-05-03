@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-    <h1>Daily Doses of Motivation</h1>
-    {% for datas in data%}
+<div class = "motivational-quotes">
+    <h1>Daily Dose of Motivation</h1>
             <div class = "quotes">
-                <h2>"{{datas['q']}}"</h2>
-                <h3> -{{datas['a']}}</h3>
+                <h1>"{{data[range(1, 51) | random ]['q']}}"</h1>
+                <h3> -{{data[range(1, 51) | random ]['a']}}</h3>
             </div>
-    {% endfor %}
 </div>
 {% endblock %}

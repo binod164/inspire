@@ -27,7 +27,7 @@ def register():
     return render_template('register.html', form=form)
 
 # login
-@users.route('/login', methods=['GET', 'POST'])
+@users.route('/', methods=['GET', 'POST'])
 def login():
 
     form = LoginForm()
@@ -53,7 +53,7 @@ def login():
 @users.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('core.info')) #once the user has logged out we will redirect them back home
+    return redirect(url_for('users.login')) #once the user has logged out we will redirect them back home
 
 
 #account (update UserForm)

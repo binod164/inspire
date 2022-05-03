@@ -20,7 +20,7 @@ font-family: 'Square Peg', cursive;
 .nav{
   background-color: rgb(25, 25, 25);
   display: flex;
-  justify-content: space-between;  
+  justify-content: flex-end;  
 }
 
 .nav *{
@@ -52,7 +52,6 @@ form *{
 
 form > .login, .register{
   font-size: 4rem;
-  /* font-weight: 4000; */
   font-family: 'Times New Roman', Times, serif;
   background-color: black;
   color:rgb(205, 200, 200) ;
@@ -68,13 +67,10 @@ form > .login, .register{
 }
 
 .card{
-  /* background-color: black; */
   border-color: rgb(39, 120, 181);
   background-color: rgb(25, 25, 25);
   border-style: solid;
   border-radius: 10px;
-  /* border-color: rgb(106, 103, 103); */
-  /* border-color: blue; */
   margin: 5px;
   width: 32%;
 }
@@ -96,20 +92,20 @@ p{
 }
 
 .details{
-  background-color: rgb(25, 25, 25);
+  /* background-color: rgb(25, 25, 25); */
   padding:50px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-top: 10vh;
   width:50vw;
-  border-style: solid;
-  border-color: rgb(39, 120, 181);
+  /* border-style: solid; */
+  /* border-color: rgb(39, 120, 181); */
   margin-left: 25vw;
 }
 
 .details *{
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .delete{
@@ -117,7 +113,7 @@ p{
 }
 
 .update, .del{
-  width: 10%;
+  width: 20%;
   padding: 0;
 }
 
@@ -131,8 +127,6 @@ p{
   border-style: solid;
   border-width: thin;
   border-color: rgb(39, 120, 181);
-  /* border-color: blue; */
-  /* border-color: rgb(106, 103, 103); */
   border-radius: 10px;
   margin-bottom: 20px;
   margin-left: 40px;
@@ -153,9 +147,6 @@ h3{
 .btn, #submit{
   border-radius: 10px;
   background-color: rgb(39, 120, 181);
-  /* border-style: solid; */
-  /* border-color: red; */
-  /* border-color: rgb(106, 103, 103); */
   color:rgb(205, 200, 200) ;
 }
 
@@ -200,14 +191,34 @@ h3{
 }
 
 .btn:hover , #submit:hover, .return:hover, .signup:hover{
-  background-color: rgb(25, 25, 25);
+  background-color: black;
+  color: antiquewhite;
+  border-color:antiquewhite ;
+}
+
+.del:hover{
+  background-color: red;
   color: antiquewhite;
 }
+
+.company-name{
+  display: flex;
+}
+
+.company-name *{
+  width: 50%;
+}
+
+.option{
+  display: flex;
+  align-self: flex-start;
+}
+
 
 @media only screen and (max-width: 600px) {
   h1{
     font-size: 1.5rem;
-    padding: 5px;
+    padding: 15px;
   }
 
   h2{
@@ -276,9 +287,14 @@ h3{
     padding: 10px 2px;
   }
 
+  .motivational-quotes{
+    margin-top: 20vh;
+  }
+
   .addapp{
     border-radius: 5px;
     font-size: 1rem;
+    text-align: center;
   }
 
   .form-check-input-lg{
@@ -287,6 +303,10 @@ h3{
 
   .form-control{
     font-size: 1em;
+  }
+
+  .add{
+    align-self: center;
   }
   
 }

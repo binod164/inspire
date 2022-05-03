@@ -6,7 +6,7 @@
                 <h1>Welcome to the page for {{user.username}}</h1>
             </div>
         </div>
-     {% for job in applied_jobs.items %}
+    {% for job in applied_jobs.items %}
     <h2>
         <a href="{{url_for('applied_jobs.applied_job', applied_job_id=job.id)}}">{{job.title}}</a>
     </h2>
