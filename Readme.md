@@ -9,7 +9,7 @@ Click [here](https://inspire7.herokuapp.com/) to view the app.
 <!-- # Screenshots
 
 <!-- <img src = "https://i.imgur.com/FaWspod.png"> -->
-<!-- <img src = "https://i.imgur.com/fXHonlK.png"> --> -->
+<!-- <img src = "https://i.imgur.com/fXHonlK.png"> --> 
 
 
 # Technologies Used

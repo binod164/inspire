@@ -219,6 +219,14 @@ h3{
   margin-bottom: 3%;
 }
 
+.motivational-quotes{
+  margin-top: 15vh;
+}
+
+.quotes{
+  margin-top: 5vh;
+}
+
 
 @media only screen and (max-width: 600px) {
   h1{
